@@ -12,3 +12,4 @@ class FeedingForm(forms.ModelForm):
                 attrs={"placeholder": "Select a date", "type": "date"},
             ),
         }
+    
