@@ -24,7 +24,7 @@ class Cat(models.Model):
     
 
 class Feeding(models.Model):
-    date = models.DateField()
+    date = models.DateField('Feeding Date')
     meal = models.CharField(max_length=1, choices=MEALS, default=[0][0])
     cat = models.ForeignKey(Cat, on_delete=models.CASCADE)
 
