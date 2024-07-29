@@ -4,11 +4,8 @@ from datetime import date
 from django.contrib.auth.models import User
 
 
-MEALS = (
-    ('B', 'Breakfast'),
-    ('L', 'Lunch'),
-    ('D', 'Dinner')
-)
+MEALS = (("B", "Breakfast"), ("L", "Lunch"), ("D", "Dinner"))
+
 
 class Toy(models.Model):
     name = models.CharField(max_length=50)
@@ -16,9 +13,10 @@ class Toy(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
-        return reverse('toy-detail', kwargs={'pk': self.id})
+        return reverse("toy-detail", kwargs={"pk": self.id})
+
 
 class Cat(models.Model):
     name = models.CharField(max_length=100)
@@ -30,20 +28,18 @@ class Cat(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
-       return reverse('cat-detail', kwargs={'cat_id': self.id})
-    
+        return reverse("cat-detail", kwargs={"cat_id": self.id})
+
 
 class Feeding(models.Model):
-    date = models.DateField('Feeding Date')
+    date = models.DateField("Feeding Date")
     meal = models.CharField(max_length=1, choices=MEALS, default=[0][0])
     cat = models.ForeignKey(Cat, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.get_meal_display()} on {self.date}"
-    
-            
-    class Meta:       
-        ordering = ["-date"]
 
+    class Meta:
+        ordering = ["-date"]
