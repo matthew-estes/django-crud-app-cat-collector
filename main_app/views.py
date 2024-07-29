@@ -3,6 +3,8 @@ from .models import Cat, Toy
 from .forms import FeedingForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
+from django.contrib.auth.views import LoginView
+
 
 
 
@@ -22,8 +24,8 @@ class CatDelete(DeleteView):
     success_url = "/cats/"
 
 
-def home(request):
-    return render(request, "home.html")
+class Home(LoginView):
+    template_name = 'home.html'
 
 
 def about(request):
