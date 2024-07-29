@@ -163,6 +163,8 @@ html {
   .page-content {
     font-size: var(--font-reg);
   }
+
+  
   
   @media only screen and (min-width: 768px) {
     header {
@@ -273,3 +275,18 @@ html {
     }
   }
   
+  #logout-form button {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+  }
+  
+  #logout-form button:hover {
+    color: var(--link-hover-color);
+  }  
